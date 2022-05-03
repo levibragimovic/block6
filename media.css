@@ -1,0 +1,38 @@
+@media (min-width: 325px) {
+  .swiper-pagination {
+    display: none;
+  }
+  .brands__header::after {
+    display: none;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .brands {
+    padding-bottom: 34px;
+  }
+  .brands__header {
+    margin-bottom: 24px;
+  }
+  .brands__items {
+    width: 224px;
+    padding: 0 0 16px 24px;
+  }
+  .brands__wrapper {
+    flex-wrap: wrap;
+  }
+  .brands__block {
+    padding-bottom: 24px;
+  }
+  .read-more--btn {
+    display: block;
+  }
+}
+
+@media (min-width: 1120px) {
+  .brands__items {
+    width: 240px;
+    padding: 24px 0 0 32px;
+  }
+}
