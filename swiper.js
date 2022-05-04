@@ -1,34 +1,31 @@
-let slider = document.querySelector(".brands__block");
+const slider = document.querySelector(".swiper");
+let swiper;
 
-let mySwiper;
-
-function mobileSlider() {
-  if (window.innerWidth <= 320 && slider.dataset.mobile == "false") {
-    mySwiper = new Swiper(slider, {
-      slideClass: "brands__items",
-      wrapperClass: "brands__wrapper",
-      // wrapperClass: "brands__wrapper-slide",
+function createSlider() {
+  if (
+    window.innerWidth <= 767 &&
+    !slider.classList.contains("swiper-initialized")
+  ) {
+    return (swiper = new Swiper(slider, {
+      loop: true,
       slidesPerView: "auto",
-
+      spaceBetween: 16,
       pagination: {
         el: ".swiper-pagination",
         type: "bullets",
+        clickable: true,
       },
-    });
-    slider.dataset.mobile = "true";
+    }));
   }
-
-  if (window.innerWidth > 320) {
-    slider.dataset.mobile = "false";
-
-    if (slider.classList.contains("swiper-initialized")) {
-      mySwiper.destroy();
-    }
+  if (
+    window.innerWidth > 767 &&
+    slider.classList.contains("swiper-initialized")
+  ) {
+    return swiper.destroy();
   }
 }
 
-mobileSlider();
-
+createSlider();
 window.addEventListener("resize", () => {
-  mobileSlider();
+  createSlider();
 });
